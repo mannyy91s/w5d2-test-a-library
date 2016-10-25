@@ -23,36 +23,28 @@ getHTML(): Get the innerHTML of an element
         return document.querySelectorAll(selectors)
     }
     var remove = function(element){
-        // return document.querySelector(element).remove()
-        return one(element).remove()  // use one() instead of document.querySelector
+        return one(element).remove()
     }
     var addClass = function(element, value){
-        // return document.querySelector(element).classList.add(value)
         one(element).classList.add(value)
     }
     var removeClass = function(element, value){
-        // return document.querySelector(element).classList.remove(value)
         one(element).classList.remove(value)
     }
     var hasClass = function(element, name){
-        // return document.querySelector(element).classList.contains(name)
-        one(element).classList.contains(name)
+        return one(element).classList.contains(name)
     }
     var getAttr = function(element, value){
-        // return document.querySelector(element).getAttribute(value)
         return one(element).getAttribute(value)
     }
     var setAttr = function(element, name, value){
-        // return document.querySelector(element).setAttribute(name, value)
         one(element).setAttribute(name,value)
     }
     var setHTML = function(selector, value){
-        // return document.querySelector(selector).innerHTML = value
-        one(element).innerHTML = value
+        one(selector).innerHTML = value
     }
     var getHTML = function(selector){
-        // return document.querySelector(selector).innerHTML
-        return one(element).innerHTML
+        return one(selector).innerHTML
     }
     var ajax = function(url, success){
         fetch(url)
@@ -78,6 +70,9 @@ getHTML(): Get the innerHTML of an element
     var addEvent = function(element, event,callback){
         return document.querySelector(element).addEventListener(event, callback)
     }
+    var flipPage = function(selector, value){
+        one(selector).style.transform = value
+    }
     window.md = {
         one: one,
         all: all,
@@ -95,5 +90,6 @@ getHTML(): Get the innerHTML of an element
         getValue: getValue,
         setValue: setValue,
         addEvent: addEvent,
+        flipPage: flipPage,
     }
 }())
