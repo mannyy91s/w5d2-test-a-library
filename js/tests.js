@@ -66,6 +66,31 @@ describe('MoDom', function() {
     it('should flip the page upside down', function() {
         md.flipPage('body','rotate(180deg)')
         expect(document.body.style.transform).to.equal('rotate(180deg)')
+        md.flipPage('body','rotate(0deg)')
+
     })
-})
+  })
+  describe('md.ajax()', function (){
+    it('should return the data from API', function(done){
+      md.ajax('http://swapi.co/api/people/1', function(){
+        done()
+      })
+    })
+  })
+  describe('md.getProp()', function(){
+    it('should return the property of the element', function(){
+      expect(md.getProp('#navbar', 'value')).to.equal(undefined)
+    })
+  })
+  describe('md.setProp()', function(){
+    it('should set the property of the element', function(){
+      md.setProp('#navbar','value','true')
+      expect(md.getProp('#navbar', 'value')).to.contain('true')
+    })
+  })
+  describe('md.getValue()', function(){
+    it('should return the value of element', function(){
+      expect(md.getValue('body','classNames')).to.be.true
+    })
+  })
 })
